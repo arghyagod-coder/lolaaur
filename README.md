@@ -1,7 +1,7 @@
 # Lola
-### `lola` : A simple CLI for installing packages on Linux easily 
+### `lolaAUR` : A simple CLI package manager for Arch/Arch Based Linux 
 
-[![Downloads](https://static.pepy.tech/personalized-badge/lolacli?period=total&units=abbreviation&left_color=black&right_color=blue&left_text=Downloads)](https://pepy.tech/project/lolacli)
+[![Downloads](https://static.pepy.tech/personalized-badge/lolaaur?period=total&units=abbreviation&left_color=black&right_color=blue&left_text=Downloads)](https://pepy.tech/project/lolaaur)
 
 **lola is made for linux users who want to download software fast and easy!**
 
@@ -13,7 +13,6 @@ So `lola` is here to make your life way more easier while installing software! T
 
 #### Dependencies
 + `click` 
-![](https://click.palletsprojects.com/en/8.0.x/_images/click-logo.png)
 
 ### Built with
 + `Python 3.8.5` 
@@ -26,6 +25,8 @@ So `lola` is here to make your life way more easier while installing software! T
 #### Method 1 (Recommended):
 
 If you dont have python3 and pip installed on your system, or are not that much of PYTHON CODER, use this method
+
+- Install wget with `sudo pacman -S wget`
 
 - In your terminal-
 
@@ -43,35 +44,29 @@ If you have python and pip installed in your computer, execute the following
 pip3 install lolacli
 ```
 
+But, there are some dependencies that you will need if you go for method 2. They are the following:
+
+- git (`sudo pacman -S git`)
+- yay (`sudo pacman -S yay`)
+
 ## Supported Platforms:
 
 + Operating System = Linux64 
 
 ![lin](https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/master/svg/dev/tools/bash.svg)
     
-  - Ubuntu 20.04 and Derivatives
-  - Mint 19.3
-  - Mint 20.1
-  - Debian 10 
-
-## Screenshots
-
-![](assets/help.png)
-
-![](assets/check-apps.png)
-
-![](assets/audacity-dl.png)
+  - Arch Linux and Derivatives like Manjaro, Garuda etc
 
 ### Guide
 
 - The help command
 
-```
+```bash
 >lola --help
 
 
   I am Lola! Your assistant who can help you setup your Linux in an easy way!
-  You can know more about me in https://github.com/arghyagod-coder/lola.
+  You can know more about me in https://github.com/arghyagod-coder/lolaaur.
 
   I can help you install apps through terminal, and you need to know almost
   nothing about the terminal to do so! Just simple prompts will be enough
@@ -86,123 +81,72 @@ Commands:
 
 ```
 
-- Check all supported apps in lola by using the `lola list` command.
+- Check some supported apps of AUR by using the `lola list` command. This list only gives names of a few packages, but every package in AUR repos can be installed via lolaAUR
 
-```
+```bash
 > lola list
 
 
-gimp
-da-vinci-resolve
-wine
-libreoffice-full
-krita
-brave-browser
-brave-beta
-brave-nightly
-edge-beta
-firefox
-chrome
-lutris
-g-drive
-blender
-python3
-miniconda
-anaconda
-pip3
-java-development-kit-11
-java-development-kit-14-oracle
-vscode
-atom-editor
+anaconda ------------- Anaconda- Powerful Tool for DS, DL and ML learners
+atom-editor ---------- Atom Code Editor 
+audacious ------------ Audacious Music Player
+audacity ------------- Professional Audio Edition Software
+blender-3.0 -------------- Open Source 3D Creation Suite
+brave ---------------- Brave Browser- Fast, Light and Secure
+brave-beta ----------- Brave Browser BETA- Regular updates and Bug Fixes
+brave-nightly -------- Brave Nightly- Nightly Updates and Bug Fixes
+calibre -------------- Free E-Book Suite
+cheese --------------- Camera App for Linux
+chrome --------------- Google Chrome Browser, the No.1 Browser in market
+chromium ------------- Chromium Browser- A Light Browser like Chrome by GOOGLE
+clang90 -------------- CLang Compiler for C
+codeblocks-svn ------- Code::Blocks editor- Fast and Powerful
+crystal -------------- Crystal language support
+desmume -------------- DesMume Emulator for NDS and GB Games
+discord -------------- Discord Client in Linux
+dosbox -------------- DOS-BOX Emulator
+dropbox -------------- Cloud Storage Client
+microsoft-edge-dev-bin - MS Edge for Linux- Regular Updates 
+emacs ---------------- Featureful Text Editor
 ...
 ```
 
 - Install an app through lola with the `lola install <appname>` command
 
-```
-> lola install cheese
+```bash
+> lola install etcher
+ 
+[sudo] password for user: 
+resolving dependencies...
+looking for conflicting packages...
 
+Packages (1) etcher-1.5.120-1
 
---2021-05-25 13:16:45--  https://raw.githubusercontent.com/arghyagod-coder/lola/master/lolacli/scripts/cheese.sh
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 53 [text/plain]
-Saving to: ‘cheese.sh’
+Total Installed Size:  36.26 MiB
 
-cheese.sh           100%[===================>]      53  --.-KB/s    in 0s      
-
-2021-05-25 13:16:48 (2.20 MB/s) - ‘cheese.sh’ saved [53/53]
-         
-Hit:1 https://brave-browser-apt-release.s3.brave.com stable InRelease
-Hit:2 http://packages.microsoft.com/repos/code stable InRelease                
-Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease               
-Hit:4 http://archive.canonical.com/ubuntu focal InRelease                      
-Ign:5 http://packages.linuxmint.com ulyssa InRelease                           
-Hit:6 http://archive.ubuntu.com/ubuntu focal InRelease
-Hit:7 http://archive.ubuntu.com/ubuntu focal-updates InRelease
-Hit:8 http://packages.linuxmint.com ulyssa Release
-Hit:10 http://archive.ubuntu.com/ubuntu focal-backports InRelease
-Reading package lists... Done
-Reading package lists... Done
-Building dependency tree       
-Reading state information... Done
-The following additional packages will be installed:
-  cheese-common gnome-video-effects libcheese-gtk25 libcheese8
-Suggested packages:
-  gnome-video-effects-frei0r gnome-video-effects-extra
-The following NEW packages will be installed:
-  cheese cheese-common gnome-video-effects libcheese-gtk25 libcheese8
-0 upgraded, 5 newly installed, 0 to remove and 6 not upgraded.
-Need to get 628 kB of archives.
-After this operation, 1,707 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 cheese-common all 3.34.0-1ubuntu1 [390 kB]
-Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcheese8 amd64 3.34.0-1ubuntu1 [33.3 kB]
-Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcheese-gtk25 amd64 3.34.0-1ubuntu1 [27.0 kB]
-Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 gnome-video-effects all 0.5.0-1ubuntu1 [38.8 kB]
-Get:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 cheese amd64 3.34.0-1ubuntu1 [139 kB]
-Fetched 628 kB in 16s (39.2 kB/s)                                              
-Selecting previously unselected package cheese-common.
-(Reading database ... 328427 files and directories currently installed.)
-Preparing to unpack .../cheese-common_3.34.0-1ubuntu1_all.deb ...
-Unpacking cheese-common (3.34.0-1ubuntu1) ...
-Selecting previously unselected package libcheese8:amd64.
-Preparing to unpack .../libcheese8_3.34.0-1ubuntu1_amd64.deb ...
-Unpacking libcheese8:amd64 (3.34.0-1ubuntu1) ...
-Selecting previously unselected package libcheese-gtk25:amd64.
-Preparing to unpack .../libcheese-gtk25_3.34.0-1ubuntu1_amd64.deb ...
-Unpacking libcheese-gtk25:amd64 (3.34.0-1ubuntu1) ...
-Selecting previously unselected package gnome-video-effects.
-Preparing to unpack .../gnome-video-effects_0.5.0-1ubuntu1_all.deb ...
-Unpacking gnome-video-effects (0.5.0-1ubuntu1) ...
-Selecting previously unselected package cheese.
-Preparing to unpack .../cheese_3.34.0-1ubuntu1_amd64.deb ...
-Unpacking cheese (3.34.0-1ubuntu1) ...
-Setting up gnome-video-effects (0.5.0-1ubuntu1) ...
-Setting up cheese-common (3.34.0-1ubuntu1) ...
-Processing triggers for bamfdaemon (0.5.3+18.04.20180207.2-0ubuntu2) ...
-Rebuilding /usr/share/applications/bamf-2.index...
-Processing triggers for desktop-file-utils (0.24+linuxmint1) ...
-Processing triggers for mime-support (3.64ubuntu1) ...
-Processing triggers for hicolor-icon-theme (0.17-2) ...
-Processing triggers for gnome-menus (3.36.0-1ubuntu1) ...
-Processing triggers for libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.3) ...
-Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
-Processing triggers for man-db (2.9.1-1) ...
-Setting up libcheese8:amd64 (3.34.0-1ubuntu1) ...
-Setting up libcheese-gtk25:amd64 (3.34.0-1ubuntu1) ...
-Setting up cheese (3.34.0-1ubuntu1) ...
-Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
-
+:: Proceed with installation? [Y/n] y
+(1/1) checking keys in keyring                                                    [##############################################] 100%
+(1/1) checking package integrity                                                  [##############################################] 100%
+(1/1) loading package files                                                       [##############################################] 100%
+(1/1) checking for file conflicts                                                 [##############################################] 100%
+(1/1) checking available disk space                                               [##############################################] 100%
+:: Processing package changes...
+(1/1) installing etcher                                                           [##############################################] 100%
+Optional dependencies for etcher
+    libnotify: for notifications [installed]
+:: Running post-transaction hooks...
+(1/3) Arming ConditionNeedsUpdate...
+(2/3) Updating icon theme caches...
+(3/3) Updating the desktop file MIME type cache...
 ```
 
 - Search Option
   - `lola search <appname>` checks the availability of an app in lola.
   
-```
+```bash
 > lola search vlc
 
-App Available!
+vlc available!
 ```
 
 - `lola update` updates lola to the latest version
@@ -231,27 +175,26 @@ App Available!
 
 ## Release Notes
 
-- **Current Release- 0.2.4 (Major Update)**
+- **Current Release- 0.1.2 (Initial Release)**
 
 ### What's new?
 
-- Added a few fun features
-- Added Search Feature
-- Faster Performance
-- Added a feature to know lola well
+- Connections to AUR repository make lola very powerful
+- By chance, if there's no such repository in AUR, lola attempts to resolve the packages with other managers
+- Better Exception Handling
+- Added few fun features to enhance user experience
 
 #### Developers
 - [Arghya Sarkar](https://github.com/arghyagod-coder)
-- [Shravan Asati](https://github.com/Shravan-1908)
 
 ## License
 
 License © 2021-Present Arghya Sarkar
 
-This repository is licensed under the MIT license. See [LICENSE](https://github.com/arghyagod-coder/lola/master/LICENSE) for details.
+This repository is licensed under the MIT license. See [LICENSE](https://github.com/arghyagod-coder/lolaaur/master/LICENSE) for details.
 
 ## Special Notes
 
 - Contribution is appreciated! Visit the contribution guide in [Contribution Guide](CONTRIBUTING.md)
-- If you don't find an app in the supported app list, file an issue in [the issue page](https://github.com/arghyagod-coder/lola/issues). Issues aren't ignored by the developers
+- If you don't find an app in the supported app list, file an issue in [the issue page](https://github.com/arghyagod-coder/lolaaur/issues). Issues aren't ignored by the developers
 - Thanks for seeing my project!

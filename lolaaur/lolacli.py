@@ -15,94 +15,83 @@ anaconda ------------- Anaconda- Powerful Tool for DS, DL and ML learners
 atom-editor ---------- Atom Code Editor 
 audacious ------------ Audacious Music Player
 audacity ------------- Professional Audio Edition Software
-blender -------------- Open Source 3D Creation Suite
-brave-browser -------- Brave Browser- Fast, Light and Secure
+blender-3.0 -------------- Open Source 3D Creation Suite
+brave ---------------- Brave Browser- Fast, Light and Secure
 brave-beta ----------- Brave Browser BETA- Regular updates and Bug Fixes
 brave-nightly -------- Brave Nightly- Nightly Updates and Bug Fixes
 calibre -------------- Free E-Book Suite
 cheese --------------- Camera App for Linux
 chrome --------------- Google Chrome Browser, the No.1 Browser in market
 chromium ------------- Chromium Browser- A Light Browser like Chrome by GOOGLE
-clang ---------------- CLang Compiler for C
-codeblocks ----------- Code::Blocks editor- Fast and Powerful
+clang90 -------------- CLang Compiler for C
+codeblocks-svn ------- Code::Blocks editor- Fast and Powerful
 crystal -------------- Crystal language support
-dconf ---------------- Manage your config files with DConf editor for Linux
 desmume -------------- DesMume Emulator for NDS and GB Games
 discord -------------- Discord Client in Linux
-dos-box -------------- DOS-BOX Emulator
+dosbox -------------- DOS-BOX Emulator
 dropbox -------------- Cloud Storage Client
-edge-beta ------------ MS Edge for Linux- Regular Updates 
+microsoft-edge-dev-bin - MS Edge for Linux- Regular Updates 
 emacs ---------------- Featureful Text Editor
 etcher --------------- Professional ISO Disk Image Writer
 evolution ------------ A lightweight yet reliable Mail Client
 firefox -------------- Firefox Web Browser- Security at top
-fish-sh -------------- Fish Shell
-g-drive -------------- Google Drive Client for Linux
-g-earth -------------- Google Earth Feature for Linux
+fish ----------------- Fish Shell
+drive ---------------- Google Drive Client for Linux
+google-earth-pro ----- Google Earth Feature for Linux
 g++ ------------------ G++ Compiler for C/CPP
 gcc ------------------ GCC Compiler for C
 geany ---------------- Lightweight Text Editor
 gedit ---------------- Casual Text Editor
-geogebra ------------- Applications for dealing with mathematical operations and visualizations
+geogebra-5 ----------- Applications for dealing with mathematical operations and visualizations
 gimp ----------------- Professional Photo Edition Software
-golang --------------- Go Language for Linux
+go ------------------- Go Language for Linux
 gparted -------------- Manage your disks and partitions with GParted
 htop ----------------- Monitor your resources with htop
-intellij-community --- IntelliJ IDEA Community Edition
-java-development-kit-11 --- JDK 11 for Linux
+intellij-idea-ce ----- IntelliJ IDEA Community Edition
+jdk ------------------ JDK 11 for Linux
 jedit----------------- Casual Text Editor
 kate ----------------- Casual Text Editor
 kazam ---------------- Light Screen Recorder for Linux
 kdenlive ------------- Casual Video Edition Software
 krita ---------------- Bring your artistic skills to life with Krita
-lazarus-pascal ------- Pascal IDE 
-libreoffice-full ----- Complete Office Suite
+lazarus-svn ---------- Pascal IDE 
+libreoffice-dev-bin -- Complete Office Suite
 lutris --------------- Open Source Gaming Platform for Linux
-minecraft ------------ One of the world's most popular games, officially on Linux
-miniconda ------------ Miniconda- Light and Powerful
+miniconda3 ----------- Miniconda- Light and Powerful
 mypaint -------------- Draw beautiful art with MyPaint
 nim ------------------ Nim Language Support
 nodejs --------------- NodeJS for Linux
-obs ------------------ Professional Screen Recorder
+obs-studio ----------- Professional Screen Recorder
 pinta ---------------- Draw beautiful images with Pinta
-pip3 ----------------- Pip3 package manager for Linux
-plank-dock ----------- Plank Dock for Desktop Linux
-powershell ----------- POWERSHELL for Linux
-pycharm-community ---- PyCharm Community Edition
-python3 -------------- Python 3.8 for Linux
-r-lang --------------- R Language for linux
-rstudio -------------- Best IDE for R Programming
-sass ----------------- Language Support SASS through npm
+plank ---------------- Plank Dock for Desktop Linux
+pycharm-community-edition -- PyCharm Community Edition
+r -------------------- R Language for linux
+rstudio-desktop ------ Best IDE for R Programming
 scribus -------------- Professional DTP Software
 shotwell ------------- Shotwell light casual Image Editor
-signal --------------- Signal client for Linux
-simple-screen-recorder -- Professional Screen Recorder
-skype ---------------- Skype Client for Business Chats, Meetings etc
+signal-desktop ------- Signal client for Linux
+simplescreenrecorder - Professional Screen Recorder
 spotify -------------- Spotify Client
 spyder --------------- An IDE for Scientists
 steam ---------------- Steam Proton Client for Linux
-stellarium ----------- Visualization Applications for Scientists
-sublimetext3 --------- Sublime Text 3- A powerful yet lightweight Editor
-sublimetext4 --------- Sublime Text 4
-telegram ------------- Telegram Client for Linux
+sublime-text-dev ----- Sublime Text- A powerful yet lightweight Editor
+telegram-desktop ------------- Telegram Client for Linux
 terminator ----------- Terminal Manager Terminator
 thonny --------------- Thonny Python Beginner's IDE
 thunderbird ---------- Thunderbird Mail Client from Moz://a
-v-lang --------------- V Language and Compiler
 vim ------------------ Professional Terminal Text Editor
 virtualbox ----------- Make and Manage Virtual Machines with Vbox
 vlc ------------------ No. 1 Media Player
-vscode --------------- Visual Studio Code Text Editor
-wine ----------------- Run Windows apps/games on Linux with WINE
+visual-studio-code-bin - Visual Studio Code Text Editor
 zoom ----------------- Zoom Client for Conferences and Meetings
-zsh-sh --------------- Zsh Shell
+and many more...
 '''
 
 
 @click.group()
 @click.version_option('0.2.3', prog_name='Lola')
 def main():
-    '''I am Lola! Your assistant who can help you setup your Linux in an easy way! You can know more about me in https://github.com/arghyagod-coder/lola.
+    '''I am Lola! Your assistant who can help you setup your Linux in an easy way! You can know more about me in https://github.com/arghyagod-coder/lolaaur.
 I can help you install apps through terminal, and you need to know almost nothing about the terminal to do so! Just simple prompts will be enough'''
     pass
 
@@ -116,33 +105,32 @@ def list():
 @click.argument('files', nargs=-1)
 def install(files):
     for file in files:
-        try:
-            # * changing working directory to the downloads dir
-            os.chdir(os.path.join(os.path.expanduser("~"), "Downloads"))
+    
+        os.chdir(os.path.join(os.path.expanduser("~"), "Downloads"))
 
-            # * requesting the installation script
-            resp = requests.get(
-                f"https://raw.githubusercontent.com/arghyagod-coder/lola/master/scripts/{file}.sh").text
+        pos= {
+            f'https://aur.archlinux.org/packages/{file}' : [f'https://aur.archlinux.org/{file}.git', f'{file}'],
+            f'https://aur.archlinux.org/packages/{file}-bin' : [f'https://aur.archlinux.org/{file}-bin.git', f'{file}-bin'],
+            f'https://aur.archlinux.org/packages/{file}-git' : [f'https://aur.archlinux.org/{file}-git.git', f'{file}-git'] 
+        }
+        home = (os.path.expanduser('~'))
+        i=0
+        for key, value in pos.items():
+            res = requests.get(key)
+            if res.status_code!=404:
+                run(f"git clone {value[0]}; cd {home}/Downloads/{value[1]};makepkg -si;cd ..;")
+                run(f'rm -rf {home}/Downloads/{file}')
+                i+=1
+                break
 
-            # * writing response text into a file
-            with open(f"{file}_install.sh", 'w') as f:
-                f.write(resp)
-
-            with open(f'{file}_install.sh') as script_file:
-                script = script_file.read()
-                if script == "404: Not Found":
-                    raise FileNotFoundError()
-
-            # * running and then removing the bash script
-            run(f"bash {os.path.join(os.getcwd(), file)}_install.sh")
-            os.remove(os.path.join(os.getcwd(), f"{file}_install.sh"))
-
-        except FileNotFoundError:
-            print('This app is not available to download via lola yet :(')
-
-        except Exception as e:
-            print(e)
-
+        if i==0:
+            try:
+                sb.check_output(f'yay -S {file} -y', shell=True)
+                run(f'yay -S {file} -y')
+            except sb.CalledProcessError:
+                click.echo(f"\n\n  -->> {file} was not found.")
+        
+        
 @main.command('info', help='Know lola well!')
 def info():
     click.echo("""
@@ -157,7 +145,7 @@ I am lola! I am here to help you install software in your system fast and easily
 
 Why use lola when we have those software managers?
 
-Well, lola is a Command Line Interface and is used inside the terminal. And as we know, terminal downloads are way more faster than the software managers. While many softwares can be downloaded with a single sudo apt install, most common ones need some more commands.
+Well, lola is a Command Line Interface and is used inside the terminal. And as we know, terminal downloads are way more faster than the software managers. While many softwares can be downloaded with a single pacman -S, most common ones need some more commands.
 
 So I am here to make your life way more easier while installing software! This project targets both advanced and beginner users, because who doesn't like speedy and quicky stuff?
 
@@ -202,16 +190,26 @@ def hack(pc):
 
 @main.command('update', help='Update lolacli to the latest version')
 def update():
-    os.system(f'pip3 install lolacli -U')
+    os.system(f'pip3 install lolaaur -U')
 
 @main.command('search', help='Check Availability of an app in lola')
 @click.argument('app', nargs=1)
 def search(app):
-    res= requests.get(f'https://raw.githubusercontent.com/arghyagod-coder/lola/master/scripts/{app}.sh')
-    if res.status_code==404:
-        print('This App is not available through lola yet :(')
+    pos= [
+            f'https://aur.archlinux.org/packages/{app}',
+            f'https://aur.archlinux.org/packages/{app}-bin',
+            f'https://aur.archlinux.org/packages/{app}-git' 
+        ]
+    i=0
+    for key in pos:
+        res = requests.get(key)
+        if res.status_code!=404:
+            i+=1
+
+    if i==0:
+        print(f'No package named {app} found')
     else:
-        print('App Available!')
+        print(f'{app} available')
 
 if __name__ == "__main__":
     main()

@@ -1,1 +1,0 @@
-apt install golang-go

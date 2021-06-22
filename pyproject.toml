@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "lolacli"
-version = "0.2.4"
+name = "lolaaur"
+version = "0.1.2"
 description = "A simple cli tool to help beginners install apps in Linux"
 authors = ["Arghya Sarkar <arghyasarkar.joker@gmail.com>"]
 license="MIT"
 readme="README.md"
-homepage= "https://github.com/arghyagod-coder/lola"
-repository = "https://github.com/arghyagod-coder/lola"
-keywords = ["lola","lola-installer","easy-installer","lola-linux", "lola-app","lola-cli"]
+homepage= "https://github.com/arghyagod-coder/lolaaur"
+repository = "https://github.com/arghyagod-coder/lolaaur"
+keywords = ["lola","lola-installer","easy-installer","lola-linux", "lola-app","lola-cli", "lolaaur"]
 
 classifiers=[
         "License :: OSI Approved :: MIT License",
@@ -28,7 +28,7 @@ requests = "^2.25.1"
 pytest = "^5.2"
 
 [tool.poetry.scripts]
-lola = "lolacli.lolacli:main"
+lola = "lolaur.lolacli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
