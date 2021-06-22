@@ -89,7 +89,7 @@ and many more...
 
 
 @click.group()
-@click.version_option('0.2.3', prog_name='Lola')
+@click.version_option('0.1.3', prog_name='lola')
 def main():
     '''I am Lola! Your assistant who can help you setup your Linux in an easy way! You can know more about me in https://github.com/arghyagod-coder/lolaaur.
 I can help you install apps through terminal, and you need to know almost nothing about the terminal to do so! Just simple prompts will be enough'''
