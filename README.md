@@ -7,7 +7,7 @@
 
 Now many will ask, Why use lola when we have those software managers?
 
-Well, lola is a Command Line Interface and is used inside the terminal. And as we know, terminal downloads are way more faster than the software managers. While many softwares can be downloaded with a single `sudo apt install`, most common ones need some more commands.
+Well, lola is a Command Line Interface and is used inside the terminal. And as we know, terminal downloads are way more faster than the software managers. While many softwares can be downloaded with a single `pacman -S`, most common ones need some more commands.
 
 So `lola` is here to make your life way more easier while installing software! This project targets both advanced and beginner users, because who doesn't like speedy and quicky stuff?
 
@@ -31,7 +31,7 @@ If you dont have python3 and pip installed on your system, or are not that much 
 - In your terminal-
 
 ```bash
-cd ~/Downloads;wget https://raw.githubusercontent.com/arghyagod-coder/lola/master/lolacli/install.sh; sudo bash install.sh
+cd ~/Downloads;wget https://raw.githubusercontent.com/arghyagod-coder/lolaaur/master/lolaaur/install.sh; sudo bash install.sh
 ```
 
 - Now `lola` is ready to work!
@@ -41,7 +41,7 @@ cd ~/Downloads;wget https://raw.githubusercontent.com/arghyagod-coder/lola/maste
 If you have python and pip installed in your computer, execute the following
 
 ```bash
-pip3 install lolacli
+pip3 install lolaaur
 ```
 
 But, there are some dependencies that you will need if you go for method 2. They are the following:
