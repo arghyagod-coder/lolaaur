@@ -175,7 +175,7 @@ vlc available!
 
 ## Release Notes
 
-- **Current Release- 0.1.2 (Initial Release)**
+- **Current Release- 0.1.4**
 
 ### What's new?
 
@@ -183,6 +183,7 @@ vlc available!
 - By chance, if there's no such repository in AUR, lola attempts to resolve the packages with other managers
 - Better Exception Handling
 - Added few fun features to enhance user experience
+- Updated README
 
 #### Developers
 - [Arghya Sarkar](https://github.com/arghyagod-coder)

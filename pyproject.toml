@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lolaaur"
-version = "0.1.3"
+version = "0.1.4"
 description = "An AUR connected package manager with wide variety of packages"
 authors = ["Arghya Sarkar <arghyasarkar.joker@gmail.com>"]
 license="MIT"
